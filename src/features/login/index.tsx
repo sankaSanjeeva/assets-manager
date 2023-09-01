@@ -29,6 +29,7 @@ export default function Login() {
   });
 
   const onSubmit = (values: LoginInput) => {
+    // eslint-disable-next-line no-console
     console.log(values);
   };
 
