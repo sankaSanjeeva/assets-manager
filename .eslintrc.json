@@ -11,7 +11,16 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["src/common/ui/*"],
+      "rules": {
+        "react/jsx-no-constructed-context-values": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off"
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -20,7 +29,10 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": ["error", "never", { "ignorePackages": true }],
+    "react/require-default-props": ["off"]
   },
   "ignorePatterns": ["vite.config.ts"]
 }

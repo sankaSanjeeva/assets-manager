@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom';
 import App from './App';
+import Login from './features/login';
 import './index.css';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element: <div>login</div>,
+        element: <Login />,
       },
       {
         path: 'dashboard',
