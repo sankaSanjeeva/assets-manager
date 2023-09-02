@@ -7,15 +7,18 @@ import {
 } from 'react-router-dom';
 import App from './App';
 import Login from './features/login';
+import Dashboard from './features/dashboard';
+import { useAuth } from './common/hooks';
 import './index.css';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
-  const token = 'useAuth();';
+  const { token } = useAuth();
 
-  if (!token) {
+  if (token) {
     return children;
   }
-  return <Navigate to="/assets-manager/login" />;
+
+  return <Navigate to={`${import.meta.env.BASE_URL}/login`} />;
 }
 
 const router = createBrowserRouter([
@@ -39,7 +42,7 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: (
           <ProtectedRoute>
-            <div>Dashboard</div>
+            <Dashboard />
           </ProtectedRoute>
         ),
       },
